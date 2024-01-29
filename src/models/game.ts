@@ -3,6 +3,8 @@ export class Game {
     public stack: string[] = [];
     public playedCards: string[] = [];
     public currentPlayer: number = 0;
+    public pickCardAnimation = false;
+    public currentCard: string = '';
    
 
     constructor() {
@@ -15,7 +17,19 @@ export class Game {
        //shuffle(this.stack);
     }
   
+    public toJson() {
+     return {
+        players: this.players, 
+        stack: this.stack,
+        playedCards: this.playedCards, 
+        currentPlayer: this.currentPlayer,
+        pickCardAnimation: this.pickCardAnimation,
+        currentCard: this.currentCard
+     }
+    }
 }
+
+
 
 // function shuffle(array: string | any[]) {
 //     let currentIndex = array.length,  randomIndex;
@@ -34,3 +48,10 @@ export class Game {
   
 //     return array;
 //   }
+
+// public shuffleCards(){
+//     for(let i = this.stack.length-1; i > 0; i--){
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [this.stack[i], this.stack[j]] = [this.stack[j], this.stack[i]];
+//     }
+// }
